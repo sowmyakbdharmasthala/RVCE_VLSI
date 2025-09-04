@@ -1,9 +1,9 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # MinAXIL: Gate-Lean 8-bit AXI-Lite Peripheral (TT Harness Compliant)
-  author:       ""      # Dr. Sowmya K B, Dr. Shilpa D R
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # An 8-bit AXI4-Lite TinyTapeout peripheral that reads a byte, processes it (bitwise invert), and returns the result via a minimal VALID/READY register interface.
+  title:        "MinAXIL: Gate-Lean 8-bit AXI-Lite Peripheral (TT Harness Compliant)"
+  author:       "Dr. Sowmya K B, Dr. Shilpa D R"
+  discord:      "Sowmya K B, for communication and automatically assigning you a Tapeout role (optional)"
+  description:  "AXI4-Lite TinyTapeout peripheral that reads a byte, processes it (bitwise invert), and returns the result via a minimal VALID/READY register interface"
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz: 25000000  # 25 MHz (synchronous design uses clk)
 
