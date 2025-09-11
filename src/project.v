@@ -187,10 +187,10 @@ module tiny_axi_lite_8bit #(
                     if (WVALID) begin
                         if (WSTRB[0]) begin
                             if (awaddr_q == 1'b0) begin
-                                reg_in  <= WDATA_S;
-                                reg_out <= ~WDATA_S;      // processing: invert
+                                reg_in  <= WDATA;
+                                reg_out <= ~WDATA;      // processing: invert
                             end else begin
-                                reg_out <= WDATA_S;       // optional write to out reg
+                                reg_out <= WDATA;       // optional write to out reg
                             end
                         end
                         wstate <= WRESP;
