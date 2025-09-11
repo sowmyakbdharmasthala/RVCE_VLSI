@@ -5,7 +5,7 @@
    that can be driven / tested by the cocotb test.py.
 */
 `timescale 1ns/1ps
-module tb_tt_um_axi8_lite_proc;
+module tb;
 
     // DUT pins
     reg  [7:0] ui_in;
