@@ -149,7 +149,7 @@ module tiny_axi_lite_8bit #(
     reg [DATA_WIDTH-1:0] reg_out;
 
     // Write FSM
-    localparam WIDLE = 2'd0, WDATA = 2'd1, WRESP = 2'd2;
+    localparam WIDLE = 2'd0, WDATA_S = 2'd1, WRESP = 2'd2;
     reg [1:0] wstate;
     reg       awaddr_q;
 
@@ -161,7 +161,7 @@ module tiny_axi_lite_8bit #(
     // Combinational handshakes
     always @(*) begin
         AWREADY = (wstate == WIDLE);
-        WREADY  = (wstate == WDATA);
+        WREADY  = (wstate == WDATA_S);
         BVALID  = (wstate == WRESP);
 
         ARREADY = (rstate == RIDLE);
@@ -180,17 +180,17 @@ module tiny_axi_lite_8bit #(
                 WIDLE: begin
                     if (AWVALID) begin
                         awaddr_q <= AWADDR[0];
-                        wstate   <= WDATA;
+                        wstate   <= WDATA_S;
                     end
                 end
-                WDATA: begin
+                WDATA_S: begin
                     if (WVALID) begin
                         if (WSTRB[0]) begin
                             if (awaddr_q == 1'b0) begin
-                                reg_in  <= WDATA;
-                                reg_out <= ~WDATA;      // processing: invert
+                                reg_in  <= WDATA_S;
+                                reg_out <= ~WDATA_S;      // processing: invert
                             end else begin
-                                reg_out <= WDATA;       // optional write to out reg
+                                reg_out <= WDATA_S;       // optional write to out reg
                             end
                         end
                         wstate <= WRESP;
