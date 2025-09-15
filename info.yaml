@@ -3,6 +3,7 @@ yaml_version: 6.0
 # SPDX-FileCopyrightText: © 2024 Your Name
 
 project:
+  title: "Simple Echo Design"
   name: "Simple Echo Design"
   description: "A Tiny Tapeout demo that echoes 8 input bits (ui_in) directly to 8 output bits (uo_out)."
   author: "Dr. Sowmya K B, Dr. Veenadivya Krishna, Dr. Shilpa D R"
