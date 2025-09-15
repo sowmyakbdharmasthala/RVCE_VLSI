@@ -1,18 +1,18 @@
 yaml_version: 6.0
 # SPDX-License-Identifier: Apache-2.0
-# SPDX-FileCopyrightText: © 2024 Your Name
-project:
-  title: "Simple Echo Design"
-  name: "Simple Echo Design"
-  description: "A Tiny Tapeout demo that echoes 8 input bits (ui_in) directly to 8 output bits (uo_out)."
-  author: "Dr. Sowmya K B, Dr. Veenadivya Krishna, Dr. Shilpa D R"
-  license: "Apache-2.0"
-  tiles: []   # Indented under project
-  
-# Clock: Tiny Tapeout requires declaring the frequency if your design uses it
-clock_hz: 25000000   # 25 MHz
+# SPDX-FileCopyrightText: © 2025 Dr. Sowmya K B
 
-# I/O description
+---
+project:
+  name: "Simple Echo Design"
+  description: "A Tiny Tapeout demo that echoes 8 input bits (ui_in) directly to 8 output bits (uo_out) when ena=1."
+  author: "Dr. Sowmya K B (RVCE)"
+  license: "Apache-2.0"
+
+# Fabrication/simulation clock used by the harness
+clock_hz: 25000000  # 25 MHz
+
+# I/O descriptions shown in the datasheet
 pins:
   inputs:
     - ui_in[0]: "Input bit 0"
@@ -33,21 +33,19 @@ pins:
     - uo_out[6]: "Echo of ui_in[6]"
     - uo_out[7]: "Echo of ui_in[7]"
   bidirectional:
-    - uio_in[7:0]: "Unused bidirectional inputs"
+    - uio_in[7:0]:  "Unused bidirectional inputs"
     - uio_out[7:0]: "Unused bidirectional outputs"
-    - uio_oe[7:0]: "Bidirectional enables (unused)"
+    - uio_oe[7:0]:  "Bidirectional enables (unused)"
 
-# Test files
+# Point CI/docs to your test(s)
 tests:
   - tests/test_tt_um_simple_echo.py
 
-# Docs (optional: you can add block diagram or images <1MB)
+# Short docs rendered in the portal (keep any images <512 kB each, <1 MB total)
 documentation: |
   ## How it works
-  This is the simplest possible Tiny Tapeout design. Whatever is driven on `ui_in`
-  is passed directly to `uo_out`, provided `ena` is high. If `ena` is low,
-  the outputs are forced to zero.
+  `tt_um_simple_echo` forwards `ui_in` to `uo_out` when `ena=1`. When `ena=0`, outputs are forced to 0.
 
   ## How to test
-  - Run the Cocotb testbench with `make test`.
-  - Or run the Verilog testbench with `iverilog` and `vvp`.
+  - Cocotb: `pytest -q` (see tests/test_tt_um_simple_echo.py).
+  - Verilog TB (Icarus): `iverilog -o tb tb/tb_tt_um_simple_echo.v src/tt_um_simple_echo.v && vvp tb`.
