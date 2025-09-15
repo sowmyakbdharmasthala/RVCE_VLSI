@@ -8,6 +8,7 @@ project:
   description: "A Tiny Tapeout demo that echoes 8 input bits (ui_in) directly to 8 output bits (uo_out)."
   author: "Dr. Sowmya K B, Dr. Veenadivya Krishna, Dr. Shilpa D R"
   license: "Apache-2.0"
+    tiles: []   # Add this line, or specify your tile configuration if needed
 
 # Clock: Tiny Tapeout requires declaring the frequency if your design uses it
 clock_hz: 25000000   # 25 MHz
