@@ -2,7 +2,6 @@ yaml_version: 1.0
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: © 2024 Your Name
 
----
 project:
   name: "Simple Echo Design"
   description: "A Tiny Tapeout demo that echoes 8 input bits (ui_in) directly to 8 output bits (uo_out)."
