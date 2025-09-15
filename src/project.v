@@ -87,7 +87,8 @@ module tt_um_axi8_lite_proc (
         if (!ARESETN) hb <= 24'd0;
         else          hb <= hb + 24'd1;
     end
-
+assign uio_oe = (RVALID_condition) ? 8'hFF : 8'h00;
+assign uio_out = (RVALID_condition) ? processed_data : 8'h00;
     // Outputs masked by ena (best practice for TinyTapeout)
     assign uo_out[0] = ena ? AWREADY      : 1'b0;
     assign uo_out[1] = ena ? WREADY       : 1'b0;
