@@ -1,15 +1,14 @@
 yaml_version: 6.0
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: © 2024 Your Name
-
 project:
   title: "Simple Echo Design"
   name: "Simple Echo Design"
   description: "A Tiny Tapeout demo that echoes 8 input bits (ui_in) directly to 8 output bits (uo_out)."
   author: "Dr. Sowmya K B, Dr. Veenadivya Krishna, Dr. Shilpa D R"
   license: "Apache-2.0"
-tiles: []   # Correct indentation
-
+  tiles: []   # Indented under project
+  
 # Clock: Tiny Tapeout requires declaring the frequency if your design uses it
 clock_hz: 25000000   # 25 MHz
 
