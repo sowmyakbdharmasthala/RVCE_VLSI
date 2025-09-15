@@ -22,10 +22,9 @@ jobs:
       - name: Install Python packages
         shell: bash
         run: pip install -r test/requirements.txt
-
-     - name: Run tests
-  run: |
-    cd test
+                 - name: Run tests
+         run: |
+       cd test
     make clean
     make
     if [ ! -f results.xml ]; then
