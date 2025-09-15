@@ -75,21 +75,6 @@ module tt_um_axi8_lite_proc (
         .RDATA  (RDATA),
         .RRESP  (RRESP)
     );
-initial begin
-    uio_oe=0;
-    data_out=0;
-end
-    always@(posedge clk or posedge reset)
-        begin
-            if(reset)
-                begin
-                    uio_oe<=0;
-                    data_out<=0;
-                end else if (RVALID) begin
-                     uio_oe<=8'hFF;
-                    data_out<=expected_value;
-                end
-    // Drive the bidirectional IOs only when enabled and returning read data
     assign drive_read_bus = ena & RVALID;     // drive only in read-data phase
     assign uio_out = drive_read_bus ? RDATA : 8'h00;
     assign uio_oe  = drive_read_bus ? 8'hFF  : 8'h00;
