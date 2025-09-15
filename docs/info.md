@@ -15,7 +15,10 @@ This project implements a VLSI design workflow, allowing users to simulate, synt
 
 ## How to test
 
-Explain how to use your project
+1. Clone the repository.
+2. Install the required dependencies listed in requirements.txt.
+3. Run the test suite using: `pytest tests/`
+4. Verify the output matches the expected results shown in the README.
 
 ## External hardware
 
