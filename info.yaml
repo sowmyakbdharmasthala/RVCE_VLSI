@@ -40,6 +40,10 @@ pins:
 # Point CI/docs to your test(s)
 tests:
   - tests/test_tt_um_simple_echo.py
+top_module: tt_um_simple_echo        # name of the top Verilog module
+source_files:
+  - src/tt_um_simple_echo.v         # Verilog source file(s)
+
 
 # Short docs rendered in the portal (keep any images <512 kB each, <1 MB total)
 documentation: |
